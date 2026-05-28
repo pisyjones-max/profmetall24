@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Профметалл 24 — Производство металлокровли и ограждений</title>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;900&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          logic: {
+            bg: '#111111',
+            panel: '#1E1E1E',
+            bar: '#282828',
+            selected: '#353535',
+            border: '#2D2D2D',
+            borderLight: '#3A3A3A',
+            blue: '#1395FF',
+            green: '#10CC52',
+            amber: '#FFB300',
+            red: '#E63946',
+          },
+          studioText: {
+            main: '#E4E4E5',
+            muted: '#8E8E93',
+            dark: '#555558',
+          }
+        },
+        fontFamily: {
+          sans: ['SF Pro Display', 'Manrope', 'sans-serif'],
+          unbounded: ['Unbounded', 'sans-serif'],
+        },
+        borderRadius: {
+          'logic': '4px',
+          'logic-m': '6px',
+        }
+      }
+    }
+  }
+</script>
+
+<style type="text/tailwindcss">
+  @layer base {
+    body {
+      @apply bg-logic-bg text-studioText-main antialiased;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo" onclick="showPage('home')">ПРОФ<span>МЕТАЛЛ</span> 24</div>
+    <div class="nav-links">
+      <span class="nav-link active" onclick="navTo('home')">Главная</span>
+      <span class="nav-link" onclick="navTo('products')">Продукция</span>
+      <span class="nav-link" onclick="navTo('price')">Прайс и заказ</span>
+      <span class="nav-link" onclick="navTo('about')">О компании</span>
+      <span class="nav-link" onclick="navTo('contacts')">Контакты</span>
+    </div>
+    <div class="nav-phone">+7(499)550-50-55</div>
+    <button class="nav-cart" onclick="openCart()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      Корзина <span class="cart-n" id="cartCount">0</span>
+    </button>
+    <button class="burger" onclick="toggleMob()" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mob-menu" id="mobMenu">
+    <span class="mob-link" onclick="navTo('home');toggleMob()">Главная</span>
+    <span class="mob-link" onclick="navTo('products');toggleMob()">Продукция</span>
+    <span class="mob-link" onclick="navTo('price');toggleMob()">Прайс и заказ</span>
+    <span class="mob-link" onclick="navTo('about');toggleMob()">О компании</span>
+    <span class="mob-link" onclick="navTo('contacts');toggleMob()">Контакты</span>
+    <div class="mob-phone">+7(499)550-50-55</div>
+  </div>
+
+  <div class="page active" id="page-home">
+    <div class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <div class="hero-label">Производство · Балашиха</div>
+        <h1>Металлокровля<br>и ограждения<br>от <em>производителя</em></h1>
+        <p class="hero-sub">Металлочерепица, профнастил, евроштакетник — изготовление за 1 день. Сталь НЛМК, Северсталь, ММК. Бесплатная доставка по Москве и МО.</p>
+        <div class="hero-btns">
+          <button class="btn-primary" onclick="navTo('price')">Смотреть прайс →</button>
+          <button class="btn-outline" onclick="navTo('products')">Каталог продукции</button>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-n">8 лет</div>
+          <div class="hero-stat-l">опыта на рынке металлопроката</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-n">1500+</div>
+          <div class="hero-stat-l">постоянных клиентов и дилеров</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-n">31 станок</div>
+          <div class="hero-stat-l">собственные производственные линии</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-n">0%</div>
+          <div class="hero-stat-l">наценок посредников — прямая цена</div>
+        </div>
+      </div>
+    </div>
+
+    <section style="background:var(--bg2)">
+      <div class="container">
+        <div class="section-label">Наши преимущества</div>
+        <div class="features-grid">
+          <div class="feat"><div class="feat-icon">⚡</div><h4>Изготовление за 1 день</h4><p>Минимальный заказ от 20 пог.м. Нестандартные длины без ограничений</p></div>
+          <div class="feat"><div class="feat-icon">🏭</div><h4>Собственное производство</h4><p>Оборудование для точной нарезки. Любые размеры и конфигурации</p></div>
+          <div class="feat"><div class="feat-icon">🚚</div><h4>Бесплатная доставка</h4><p>По Москве и Московской области за 1–3 дня. Открытые платформы</p></div>
+          <div class="feat"><div class="feat-icon">🔩</div><h4>Сталь ведущих заводов</h4><p>НЛМК, Северсталь, ММК. Оцинковка 120–275 г/м². Полиэстер 23–35 мкм</p></div>
+          <div class="feat"><div class="feat-icon">🎨</div><h4>Широкая палитра цветов</h4><p>Стандартные RAL и нестандартные. Deep Matte, Printech, двусторонние покрытия</p></div>
+          <div class="feat"><div class="feat-icon">📋</div><h4>Сертификаты качества</h4><p>Вся документация в электронном виде автоматически при каждой отгрузке</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+        <div class="section-label">Каталог</div>
+        <h2 class="section-title">Наше производство</h2>
+        <p class="section-sub" style="margin-left: auto; margin-right: auto; max-width: 620px;">
+          Полный цикл — от заготовки стали до готового изделия. Металлочерепица, профнастил, фальцевая кровля, евроштакетник, доборные элементы.
+        </p>
+
+        <div class="prod-grid" id="homeProducts">
+          <div class="prod-card" onclick="navTo('price');setTimeout(()=>{document.getElementById('pcatF').value='tile';renderPrice()},100)">
+            <div class="prod-img">
+              <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&amp;q=80" alt="Металлочерепица" loading="lazy">
+              <div class="prod-badge">Хит продаж</div>
+            </div>
+            <div class="prod-body">
+              <h3>Металлочерепица</h3>
+              <p>Монтеррей, Усадьба, Шато, Гранд, Kvinta, Супер Kvinta. Покрытие PE, Matte, Deep Matte, Printech. Рабочая ширина 1100–1160 мм.</p>
+              <div class="prod-tags"><span class="prod-tag">PE</span><span class="prod-tag">Matte</span><span class="prod-tag">Printech</span><span class="prod-tag">НЛМК</span><span class="prod-tag">Северсталь</span></div>
+              <div class="prod-footer">
+                <div class="prod-price"><span class="prod-price">Цена</span><strong>от 398 ₽/кв.м</strong></div>
+                <button class="prod-cta">Смотреть цены →</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="prod-card" onclick="navTo('price');setTimeout(()=>{document.getElementById('pcatF').value='prof';renderPrice()},100)">
+            <div class="prod-img">
+              <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&amp;q=80" alt="Профнастил" loading="lazy">
+            </div>
+            <div class="prod-body">
+              <h3>Профнастил</h3>
+              <p>С-8, С-20, С-20R, МП-20, С-21, НС-35, НС-44, Н-60, Н-75, Н-114. Толщина 0.25–1.0 мм. Кровельный и заборный.</p>
+              <div class="prod-tags"><span class="prod-tag">Кровельный</span><span class="prod-tag">Заборный</span><span class="prod-tag">0.25–1.0 мм</span></div>
+              <div class="prod-footer">
+                <div class="prod-price"><span class="prod-price">Цена</span><strong>от 310 ₽/пог.м</strong></div>
+                <button class="prod-cta">Смотреть цены →</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="prod-card" onclick="navTo('price');setTimeout(()=>{document.getElementById('pcatF').value='flat';renderPrice()},100)">
+            <div class="prod-img">
+              <img src="https://images.unsplash.com/photo-1595514535116-8be1e2f24e0e?w=600&amp;q=80" alt="Фальцевая кровля" loading="lazy">
+            </div>
+            <div class="prod-body">
+              <h3>Фальцевая кровля</h3>
+              <p>Замковая и клик-замок. Прямая, пуклёвка, трапеция. Гладкий лист 1250 мм в защитной полиэстерной плёнке.</p>
+              <div class="prod-tags"><span class="prod-tag">Замковая</span><span class="prod-tag">Клик-замок</span><span class="prod-tag">Гладкий лист</span></div>
+              <div class="prod-footer">
+                <div class="prod-price"><span class="prod-price">Цена</span><strong>от 229 ₽/пог.м</strong></div>
+                <button class="prod-cta">Смотреть цены →</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="prod-card" onclick="navTo('price');setTimeout(()=>{document.getElementById('pcatF').value='fence';renderPrice()},100)">
+            <div class="prod-img">
+              <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&amp;q=80" alt="Евроштакетник" loading="lazy">
+              <div class="prod-badge">Для заборов</div>
+            </div>
+            <div class="prod-body">
+              <h3>Евроштакетник</h3>
+              <p>Профили М, П, ПК — прямые и фигурные. Ширина 109–120 мм. Полная, центральная и двойная перфорация.</p>
+              <div class="prod-tags"><span class="prod-tag">М</span><span class="prod-tag">П</span><span class="prod-tag">ПК</span><span class="prod-tag">109–120 мм</span></div>
+              <div class="prod-footer">
+                <div class="prod-price"><span class="prod-price">Цена</span><strong>от 43 ₽/пог.м</strong></div>
+                <button class="prod-cta">Смотреть цены →</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="prod-card" onclick="navTo('price');setTimeout(()=>{document.getElementById('pcatF').value='soffit';renderPrice()},100)">
+            <div class="prod-img">
+              <img src="https://images.unsplash.com/photo-1590725140246-20acddc1ec6d?w=600&amp;q=80" alt="Металлосайдинг / Софит" loading="lazy">
+            </div>
+            <div class="prod-body">
+              <h3>Металлосайдинг / Софит</h3>
+              <p>Софит 365/332 мм с полной, центральной, двойной перфорацией и без. Для подшивки карнизных свесов.</p>
+              <div class="prod-tags"><span class="prod-tag">Перфорированный</span><span class="prod-tag">Без перфорации</span></div>
+              <div class="prod-footer">
+                <div class="prod-price"><span class="prod-price">Цена</span><strong>от 233 ₽/пог.м</strong></div>
+                <button class="prod-cta">Смотреть цены →</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="prod-card" onclick="navTo('price');setTimeout(()=>{document.getElementById('pcatF').value='roof-acc';renderPrice()},100)">
+            <div class="prod-img">
+              <img src="https://images.unsplash.com/photo-1504309092620-4d0ec726efa4?w=600&amp;q=80" alt="Доборные элементы" loading="lazy">
+              <div class="prod-badge">Комплект</div>
+            </div>
+            <div class="prod-body">
+              <h3>Доборные элементы</h3>
+              <p>Коньки, ендовы, ветровые планки, карнизные капельники, планки примыкания, снеговые барьеры. Полный комплект для монтажа.</p>
+              <div class="prod-tags"><span class="prod-tag">Коньки</span><span class="prod-tag">Ендовы</span><span class="prod-tag">Отливы</span><span class="prod-tag">Уголки</span></div>
+              <div class="prod-footer">
+                <div class="prod-price"><span class="prod-price">Цена</span><strong>от 212 ₽/шт</strong></div>
+                <button class="prod-cta">Смотреть цены →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="background:var(--bg2)">
+      <div class="container" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+        <div class="section-label" style="text-align: center;">Как это работает</div>
+        <h2 class="section-title" style="margin-bottom: 48px; text-align: center;">Процесс производства</h2>
+
+        <div class="process-steps" style="width: 100%;">
+          <div class="step">
+            <div class="step-n">01</div>
+            <h4>Заказ</h4>
+            <p>Оформляете заявку онлайн, по телефону или в офисе. Менеджер уточняет параметры</p>
+          </div>
+          <div class="step">
+            <div class="step-n">02</div>
+            <h4>Нарезка</h4>
+            <p>Сталь режется на профилегибочных станках точно по вашим размерам</p>
+          </div>
+          <div class="step">
+            <div class="step-n">03</div>
+            <h4>Контроль</h4>
+            <p>Каждое изделие проверяется на соответствие: геометрия, покрытие, маркировка</p>
+          </div>
+          <div class="step">
+            <div class="step-n">04</div>
+            <h4>Упаковка</h4>
+            <p>Деревянные брусья, стяжные ремни. Маркировка с весом и датой отгрузки</p>
+          </div>
+          <div class="step">
+            <div class="step-n">05</div>
+            <h4>Доставка</h4>
+            <p>Открытые платформы, тент, скорость до 80 км/ч. 1–3 дня по МО</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta-band">
+      <div class="container">
+        <h2>Готовы рассчитать стоимость?</h2>
+        <p>Используйте наш калькулятор площади кровли и сразу оформите заказ</p>
+        <button class="btn-white" onclick="navTo('price')">Открыть прайс с калькулятором →</button>
+      </div>
+    </div>
+
+    <section>
+      <div class="container" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+        <div class="section-label" style="text-align: center;">Цифры</div>
+        <h2 class="section-title" style="text-align: center;">Почему выбирают нас</h2>
+
+        <div class="why-grid" style="width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; justify-content: center;">
+          <div class="why-card" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+            <div class="why-n">01</div>
+            <h4>Прямые цены без наценок</h4>
+            <p>Производство = склад = отгрузка. Никаких посредников и торговых надбавок</p>
+          </div>
+
+          <div class="why-card" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+            <div class="why-n">02</div>
+            <h4>Любые нестандартные размеры</h4>
+            <p>Режем от 0.5 до 12 метров включительно. Индивидуальные конфигурации без ограничений</p>
+          </div>
+
+          <div class="why-card" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+            <div class="why-n">03</div>
+            <h4>Полный комплект доборов</h4>
+            <p>Коньки, ендовы, ветровые планки, отливы — всё с одного места. Один прайс, одна доставка</p>
+          </div>
+
+          <div class="why-card" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+            <div class="why-n">04</div>
+            <h4>Telegram-заказ за 2 минуты</h4>
+            <p>Выбрали, посчитали, отправили — наш менеджер получает готовую заявку мгновенно</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container footer-container" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+        <div class="footer-action-block" style="max-width: 500px; width: 100%; margin-bottom: 50px;">
+          <h2 style="font-family: 'Unbounded', sans-serif; font-size: 26px; color: #fff; margin-bottom: 12px;">
+            Рассчитать стоимость металла
+          </h2>
+          <p style="color: #94a3b8; font-size: 15px; margin-bottom: 24px; line-height: 1.5;">
+            Введите номер телефона. Менеджер перезвонит с готовым расчетом по вашим размерам в течение 10 минут.
+          </p>
+          <form class="simple-footer-form" onsubmit="event.preventDefault(); alert('Заявка принята! Свяжемся с вами в ближайшее время.');">
+            <input type="tel" placeholder="+7 (993) 000-00-00" required>
+            <button type="submit">Получить расчет стоимости →</button>
+          </form>
+          <div class="form-privacy">
+            Нажимая кнопку, вы даете согласие на обработку персональных данных в соответствии с 152-ФЗ
+          </div>
+        </div>
+
+        <hr style="width: 100%; border: 0; border-top: 1px solid #1e2330; margin-bottom: 40px;">
+
+        <div class="footer-contacts-grid">
+          <div class="footer-contact-col">
+            <span class="footer-col-icon">📞</span>
+            <h4>Телефоны</h4>
+            <a href="tel:+74995505055" class="footer-phone-link">+7 (499) 550-50-55</a>
+            <a href="tel:+79685611660" class="footer-phone-link">+7 (968) 561-16-60</a>
+            <a href="tel:+79252390001" class="footer-phone-link">+7 (925) 239-00-01</a>
+          </div>
+
+          <div class="footer-contact-col">
+            <span class="footer-col-icon">📍</span>
+            <h4>Адрес производства</h4>
+            <p class="footer-text-important">
+              Московская обл., Балашихинский район,<br>д. Черное, ул. Агрогородок, владение 71
+            </p>
+          </div>
+
+          <div class="footer-contact-col">
+            <span class="footer-col-icon">⏰</span>
+            <h4>Режим работы & Email</h4>
+            <p class="footer-text-important" style="margin-bottom: 10px;">
+              Пн–Пт с 09:00 до 18:00<br>
+              Сб с 10:00 до 17:00<br>
+              <span style="color: #ef4444; font-weight: 600;">Вс — выходной</span>
+            </p>
+            <a href="mailto:prof.metall@inbox.ru" class="footer-email-link">prof.metall@inbox.ru</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container fb-flex">
+          <p>&copy; 2026 Завод «Проф Металл». Все права защищены.</p>
+          <p class="developer-credit">
+            Создание сайта: <a href="https://sale.ads.msk.ru/" target="_blank" rel="noopener noreferrer">Novation</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div class="page" id="page-products">
+    <section style="padding: 60px 0;">
+      <div class="container" style="display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        <div class="section-label" style="text-align: center; margin-bottom: 8px;">Каталог продукции</div>
+        <h1 class="section-title" style="text-align: center; margin-bottom: 12px; font-family: 'Unbounded', sans-serif;">Вся продукция</h1>
+        <p class="section-sub" style="text-align: center; color: #94a3b8; margin-bottom: 40px; font-size: 16px;">
+          Кликните на категорию, чтобы перейти к ценам и оформить заказ
+        </p>
+
+        <div class="prod-grid" id="allProducts" style="width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; justify-content: center;">
+          <div class="prod-card" onclick="navTo('price');setTimeout(()=>{document.getElementById('pcatF').value='tile';renderPrice()},100)" style="display: flex; flex-direction: column; align-items: center; text-align: center; cursor: pointer;">
+            <div class="prod-img" style="position: relative; width: 100%;">
+              <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&amp;q=80" alt="Металлочерепица" loading="lazy" style="width: 100%; object-fit: cover; border-radius: 8px 8px 0 0;">
+              <div class="prod-badge" style="position: absolute; top: 12px; left: 12px;">Хит продаж</div>
+            </div>
+            <div class="prod-body" style="padding: 20px; display: flex; flex-direction: column; align-items: center; width: 100%; box-sizing: border-box;">
+              <h3 style="margin-bottom: 10px;">Металлочерепица</h3>
+              <p style="font-size: 14px; color: #94a3b8; line-height: 1.5; margin-bottom: 16px;">Монтеррей, Усадьба, Шато, Гранд, Kvinta, Супер Kvinta. Покрытие PE, Matte, Deep Matte, Printech. Рабочая ширина 1100–1160 мм.</p>
+              <div class="prod-tags" style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 20px;">
+                <span class="prod-tag">PE</span><span class="prod-tag">Matte</span><span class="prod-tag">Printech</span><span class="prod-tag">НЛМК</span><span class="prod-tag">Северсталь</span>
+              </div>
+              <div class="prod-footer" style="width: 100%; display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: auto;">
+                <div class="prod-price" style="font-size: 14px; color: #64748b;">Цена <strong style="color: #fff; font-size: 18px; display: block; margin-top: 4px;">от 398 ₽/кв.м</strong></div>
+                <button class="prod-cta" style="width: 100%;">Смотреть цены →</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="prod-card" onclick="navTo('price');setTimeout(()=>{document.getElementById('pcatF').value='prof';renderPrice()},100)" style="display: flex; flex-direction: column; align-items: center; text-align: center; cursor: pointer;">
+            <div class="prod-img" style="position: relative; width: 100%;">
+              <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&amp;q=80" alt="Профнастил" loading="lazy" style="width: 100%; object-fit: cover; border-radius: 8px 8px 0 0;">
+            </div>
+            <div class="prod-body" style="padding: 20px; display: flex; flex-direction: column; align-items: center; width: 100%; box-sizing: border-box;">
+              <h3 style="margin-bottom: 10px;">Профнастил</h3>
+              <p style="font-size: 14px; color: #94a3b8; line-height: 1.5; margin-bottom: 16px;">С-8, С-20, С-20R, МП-20, С-21, НС-35, НС-44, Н-60, Н-75, Н-114. Толщина 0.25–1.0 мм. Кровельный и заборный.</p>
+              <div class="prod-tags" style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 20px;">
+                <span class="prod-tag">Кровельный</span><span class="prod-tag">Заборный</span><span class="prod-tag">0.25–1.0 мм</span>
+              </div>
+              <div class="prod-footer" style="width: 100%; display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: auto;">
+                <div class="prod-price" style="font-size: 14px; color: #64748b;">Цена <strong style="color: #fff; font-size: 18px; display: block; margin-top: 4px;">от 310 ₽/пог.м</strong></div>
+                <button class="prod-cta" style="width: 100%;">Смотреть цены →</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="prod-card" onclick="navTo('price');setTimeout(()=>{document.getElementById('pcatF').value='flat';renderPrice()},100)" style="display: flex; flex-direction: column; align-items: center; text-align: center; cursor: pointer;">
+            <div class="prod-img" style="position: relative; width: 100%;">
+              <img src="https://images.unsplash.com/photo-1595514535116-8be1e2f24e0e?w=600&amp;q=80" alt="Фальцевая кровля" loading="lazy" style="width: 100%; object-fit: cover; border-radius: 8px 8px 0 0;">
+            </div>
+            <div class="prod-body" style="padding: 20px; display: flex; flex-direction: column; align-items: center; width: 100%; box-sizing: border-box;">
+              <h3 style="margin-bottom: 10px;">Фальцевая кровля</h3>
+              <p style="font-size: 14px; color: #94a3b8; line-height: 1.5; margin-bottom: 16px;">Замковая и клик-замок. Прямая, пуклёвка, трапеция. Гладкий лист 1250 мм в защитной полиэстерной плёнке.</p>
+              <div class="prod-tags" style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 20px;">
+                <span class="prod-tag">Замковая</span><span class="prod-tag">Клик-замок</span><span class="prod-tag">Гладкий лист</span>
+              </div>
+              <div class="prod-footer" style="width: 100%; display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: auto;">
+                <div class="prod-price" style="font-size: 14px; color: #64748b;">Цена <strong style="color: #fff; font-size: 18px; display: block; margin-top: 4px;">от 229 ₽/пог.м</strong></div>
+                <button class="prod-cta" style="width: 100%;">Смотреть цены →</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="prod-card" onclick="navTo('price');setTimeout(()=>{document.getElementById('pcatF').value='fence';renderPrice()},100)" style="display: flex; flex-direction: column; align-items: center; text-align: center; cursor: pointer;">
+            <div class="prod-img" style="position: relative; width: 100%;">
+              <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&amp;q=80" alt="Евроштакетник" loading="lazy" style="width: 100%; object-fit: cover; border-radius: 8px 8px 0 0;">
+              <div class="prod-badge" style="position: absolute; top: 12px; left: 12px;">Для заборов</div>
+            </div>
+            <div class="prod-body" style="padding: 20px; display: flex; flex-direction: column; align-items: center; width: 100%; box-sizing: border-box;">
+              <h3 style="margin-bottom: 10px;">Евроштакетник</h3>
+              <p style="font-size: 14px; color: #94a3b8; line-height: 1.5; margin-bottom: 16px;">Профили М, П, ПК — прямые и фигурные. Ширина 109–120 мм. Полная, центральная и двойная перфорация.</p>
+              <div class="prod-tags" style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 20px;">
+                <span class="prod-tag">М</span><span class="prod-tag">П</span><span class="prod-tag">ПК</span><span class="prod-tag">109–120 мм</span>
+              </div>
+              <div class="prod-footer" style="width: 100%; display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: auto;">
+                <div class="prod-price" style="font-size: 14px; color: #64748b;">Цена <strong style="color: #fff; font-size: 18px; display: block; margin-top: 4px;">от 43 ₽/пог.м</strong></div>
+                <button class="prod-cta" style="width: 100%;">Смотреть цены →</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="prod-card" onclick="navTo('price');setTimeout(()=>{document.getElementById('pcatF').value='soffit';renderPrice()},100)" style="display: flex; flex-direction: column; align-items: center; text-align: center; cursor: pointer;">
+            <div class="prod-img" style="position: relative; width: 100%;">
+              <img src="https://images.unsplash.com/photo-1590725140246-20acddc1ec6d?w=600&amp;q=80" alt="Металлосайдинг / Софит" loading="lazy" style="width: 100%; object-fit: cover; border-radius: 8px 8px 0 0;">
+            </div>
+            <div class="prod-body" style="padding: 20px; display: flex; flex-direction: column; align-items: center; width: 100%; box-sizing: border-box;">
+              <h3 style="margin-bottom: 10px;">Металлосайдинг / Софит</h3>
+              <p style="font-size: 14px; color: #94a3b8; line-height: 1.5; margin-bottom: 16px;">Софит 365/332 мм с полной, центральной, двойной перфорацией и без. Для подшивки карнизных свесов.</p>
+              <div class="prod-tags" style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 20px;">
+                <span class="prod-tag">Перфорированный</span><span class="prod-tag">Без перфорации</span>
+              </div>
+              <div class="prod-footer" style="width: 100%; display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: auto;">
+                <div class="prod-price" style="font-size: 14px; color: #64748b;">Цена <strong style="color: #fff; font-size: 18px; display: block; margin-top: 4px;">от 233 ₽/пог.м</strong></div>
+                <button class="prod-cta" style="width: 100%;">Смотреть цены →</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="prod-card" onclick="navTo('price');setTimeout(()=>{document.getElementById('pcatF').value='roof-acc';renderPrice()},100)" style="display: flex; flex-direction: column; align-items: center; text-align: center; cursor: pointer;">
+            <div class="prod-img" style="position: relative; width: 100%;">
+              <img src="https://images.unsplash.com/photo-1504309092620-4d0ec726efa4?w=600&amp;q=80" alt="Доборные элементы" loading="lazy" style="width: 100%; object-fit: cover; border-radius: 8px 8px 0 0;">
+              <div class="prod-badge" style="position: absolute; top: 12px; left: 12px;">Комплект</div>
+            </div>
+            <div class="prod-body" style="padding: 20px; display: flex; flex-direction: column; align-items: center; width: 100%; box-sizing: border-box;">
+              <h3 style="margin-bottom: 10px;">Доборные элементы</h3>
+              <p style="font-size: 14px; color: #94a3b8; line-height: 1.5; margin-bottom: 16px;">Коньки, ендовы, ветровые планки, карнизные капельники, планки примыкания, снеговые барьеры. Полный комплект для монтажа.</p>
+              <div class="prod-tags" style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 20px;">
+                <span class="prod-tag">Коньки</span><span class="prod-tag">Ендовы</span><span class="prod-tag">Отливы</span><span class="prod-tag">Уголки</span>
+              </div>
+              <div class="prod-footer" style="width: 100%; display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: auto;">
+                <div class="prod-price" style="font-size: 14px; color: #64748b;">Цена <strong style="color: #fff; font-size: 18px; display: block; margin-top: 4px;">от 212 ₽/шт</strong></div>
+                <button class="prod-cta" style="width: 100%;">Смотреть цены →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container footer-container" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+        <div class="footer-action-block" style="max-width: 500px; width: 100%; margin-bottom: 50px;">
+          <h2 style="font-family: 'Unbounded', sans-serif; font-size: 26px; color: #fff; margin-bottom: 12px;">
+            Рассчитать стоимость металла
+          </h2>
+          <p style="color: #94a3b8; font-size: 15px; margin-bottom: 24px; line-height: 1.5;">
+            Введите номер телефона. Менеджер перезвонит с готовым расчетом по вашим размерам в течение 10 минут.
+          </p>
+          <form class="simple-footer-form" onsubmit="event.preventDefault(); alert('Заявка принята! Свяжемся с вами в ближайшее время.');">
+            <input type="tel" placeholder="+7 (993) 000-00-00" required>
+            <button type="submit">Получить расчет стоимости →</button>
+          </form>
+          <div class="form-privacy">
+            Нажимая кнопку, вы даете согласие на обработку персональных данных в соответствии с 152-ФЗ
+          </div>
+        </div>
+
+        <hr style="width: 100%; border: 0; border-top: 1px solid #1e2330; margin-bottom: 40px;">
+
+        <div class="footer-contacts-grid">
+          <div class="footer-contact-col">
+            <span class="footer-col-icon">📞</span>
+            <h4>Телефоны</h4>
+            <a href="tel:+74995505055" class="footer-phone-link">+7 (499) 550-50-55</a>
+            <a href="tel:+79685611660" class="footer-phone-link">+7 (968) 561-16-60</a>
+            <a href="tel:+79252390001" class="footer-phone-link">+7 (925) 239-00-01</a>
+          </div>
+          <div class="footer-contact-col">
+            <span class="footer-col-icon">📍</span>
+            <h4>Адрес производства</h4>
+            <p class="footer-text-important">
+              Московская обл., Балашихинский район,<br>д. Черное, ул. Агрогородок, владение 71
+            </p>
+          </div>
+          <div class="footer-contact-col">
+            <span class="footer-col-icon">⏰</span>
+            <h4>Режим работы & Email</h4>
+            <p class="footer-text-important" style="margin-bottom: 10px;">
+              Пн–Пт с 09:00 до 18:00<br>
+              Сб с 10:00 до 17:00<br>
+              <span style="color: #ef4444; font-weight: 600;">Вс — выходной</span>
+            </p>
+            <a href="mailto:prof.metall@inbox.ru" class="footer-email-link">prof.metall@inbox.ru</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container fb-flex">
+          <p>&copy; 2026 Завод «Проф Металл». Все права защищены.</p>
+          <p class="developer-credit">
+            Создание сайта: <a href="https://sale.ads.msk.ru/" target="_blank" rel="noopener noreferrer">Novation</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div class="page" id="page-price">
+    <div class="price-page">
+      <div class="price-container">
+        <div class="price-hero">
+          <div class="price-updated">● Обновлено 02.03.2026</div>
+          <h1>Прайс-лист</h1>
+          <p>НЛМК / Северсталь / ММК · Производство 1 день · Бесплатная доставка</p>
+        </div>
+
+        <div class="calc-card">
+          <div class="calc-head">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 7h4M7 12h10M7 17h10"/></svg>
+            <h3>Калькулятор площади кровли</h3>
+          </div>
+          <div class="calc-grid">
+            <div class="c-field"><label>Длина (м)</label><input type="number" id="cL" min="0" step="0.1" placeholder="10" oninput="calcArea()"></div>
+            <div class="c-field"><label>Ширина (м)</label><input type="number" id="cW" min="0" step="0.1" placeholder="6" oninput="calcArea()"></div>
+            <div class="c-field"><label>Кол-во скатов</label><input type="number" id="cS" min="1" value="2" oninput="calcArea()"></div>
+            <div class="c-field"><label>Запас (%)</label><input type="number" id="cR" min="0" value="10" oninput="calcArea()"></div>
+          </div>
+          <div class="calc-result">
+            <span class="calc-result-lbl">Итоговая площадь с запасом:</span>
+            <span class="calc-result-val" id="calcOut">— м²</span>
+          </div>
+          <div class="calc-note">Чистая площадь × количество скатов + запас на нахлёсты и подрезку</div>
+        </div>
+
+        <div class="price-controls">
+          <div class="search-wrap">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input class="p-input" type="text" id="psearch" placeholder="Поиск по прайсу..." oninput="renderPrice()">
+          </div>
+          <select class="p-select" id="pcatF" onchange="renderPrice()">
+            <option value="">Все категории</option>
+            <option value="tile">Металлочерепица</option>
+            <option value="prof">Профнастил</option>
+            <option value="flat">Гладкий лист / Фальцевая</option>
+            <option value="strips">Штрипс</option>
+            <option value="fence">Евроштакетник</option>
+            <option value="soffit">Металлосайдинг / Софит</option>
+            <option value="modular">Модульные заборы</option>
+            <option value="roof-acc">Комплектующие кровли</option>
+            <option value="fence-acc">Комплектующие забора</option>
+            <option value="windows">Отливы оконные</option>
+          </select>
+          <select class="p-select" id="pthF" onchange="renderPrice()">
+            <option value="">Любая толщина</option>
+            <option value="0.25">0.25 мм</option>
+            <option value="0.30">0.30 мм</option>
+            <option value="0.35">0.35 мм</option>
+            <option value="0.40">0.40 мм</option>
+            <option value="0.45">0.45 мм</option>
+            <option value="0.50">0.50 мм</option>
+            <option value="0.55">0.55 мм</option>
+            <option value="0.70">0.70 мм</option>
+            <option value="1.00">1.00 мм</option>
+          </select>
+          <span class="price-count" id="pcount">—</span>
+        </div>
+        <div id="priceOutput"></div>
+        <div class="price-info">
+          <div><b>Условия заказа</b><br>Срок — 1 день ·  Минимум 20 пог.м.<br>Менее 20 пог.м. — +20% к цене</div>
+          <div><b>Покрытия</b><br>Нестандартные PE — +45 ₽/кв.м<br>RR32 / двустор. RR32 — +60 ₽/кв.м</div>
+          <div><b>Доставка</b><br>Москва и МО — 1–3 дня<br>Бесплатная при выполнении условий</div>
+          <div><b>Доборные элементы</b><br>Нестандарт. цвета — +20%, до 7 дней<br>Цены на 0.35 мм, +5% за каждую толщину</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page" id="page-about">
+    <section style="padding: 60px 0;">
+      <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        <div class="about-grid">
+          <div>
+            <div class="about-img-wrap" style="margin-bottom: 24px; border-radius: 12px; overflow: hidden; background: #1e1e1e;">
+              <img src="https://images.unsplash.com/photo-1581094480485-89f01861b99f?w=800&amp;q=80" alt="Производство Профметалл 24" style="width: 100%; height: auto; display: block;">
+            </div>
+
+            <div class="about-stats" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 16px;">
+              <div class="astat" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 16px; background: var(--bg2); border-radius: 8px;">
+                <div class="astat-n" style="font-family: 'Unbounded', sans-serif; font-size: 24px; font-weight: 700; color: #ff6b00;">10+</div>
+                <div class="astat-l" style="font-size: 13px; color: #94a3b8; margin-top: 4px;">лет на рынке</div>
+              </div>
+              <div class="astat" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 16px; background: var(--bg2); border-radius: 8px;">
+                <div class="astat-n" style="font-family: 'Unbounded', sans-serif; font-size: 24px; font-weight: 700; color: #ff6b00;">50к+</div>
+                <div class="astat-l" style="font-size: 13px; color: #94a3b8; margin-top: 4px;">заказов выполнено</div>
+              </div>
+              <div class="astat" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 16px; background: var(--bg2); border-radius: 8px;">
+                <div class="astat-n" style="font-family: 'Unbounded', sans-serif; font-size: 24px; font-weight: 700; color: #ff6b00;">1 день</div>
+                <div class="astat-l" style="font-size: 13px; color: #94a3b8; margin-top: 4px;">срок изготовления</div>
+              </div>
+              <div class="astat" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 16px; background: var(--bg2); border-radius: 8px;">
+                <div class="astat-n" style="font-family: 'Unbounded', sans-serif; font-size: 24px; font-weight: 700; color: #ff6b00;">МО</div>
+                <div class="astat-l" style="font-size: 13px; color: #94a3b8; margin-top: 4px;">быстрая доставка</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-text" style="display: flex; flex-direction: column; justify-content: center;">
+            <div class="section-label" style="margin-bottom: 8px;">О компании</div>
+            <h2 class="section-title" style="font-family: 'Unbounded', sans-serif; margin-bottom: 20px;">Производство в Балашихе</h2>
+            <p style="color: #e4e4e5; font-size: 15px; line-height: 1.6; margin-bottom: 16px;">
+              «Профметалл 24» — производственная компания полного цикла. Мы сами изготавливаем металлочерепицу, профнастил, фальцевую кровлю, евроштакетник и все сопутствующие доборные элементы.
+            </p>
+            <p style="color: #94a3b8; font-size: 15px; line-height: 1.6; margin-bottom: 16px;">
+              Наш завод расположен в г.о. Балашиха, дер. Чёрное, ул. Агрогородок, вл. 71. Современное высокотехнологичное профилегибочное оборудование позволяет резать листовой прокат с точностью до миллиметра в любых объёмах.
+            </p>
+            <p style="color: #94a3b8; font-size: 15px; line-height: 1.6; margin-bottom: 24px;">
+              Используем только сталь крупнейших российских металлургических комбинатов — НЛМК, Северсталь, ММК. Оцинкование от 120 до 275 г/м², защитно-декоративные покрытия Полиэстер (PE), Matte, Deep Matte, Printech.
+            </p>
+
+            <div class="certs" style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-start;">
+              <div class="cert">ГОСТ Р 52146-2003</div>
+              <div class="cert">ISO 9001</div>
+              <div class="cert">Сертификат НЛМК</div>
+              <div class="cert">Сертификат Северсталь</div>
+              <div class="cert">Сертификат ММК</div>
+              <div class="cert">Паспорта качества</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="background: var(--bg2); padding: 60px 0;">
+      <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+        <div class="section-label" style="text-align: center; margin-bottom: 8px;">Ассортимент</div>
+        <h2 class="section-title" style="text-align: center; margin-bottom: 40px; font-family: 'Unbounded', sans-serif;">Что мы производим</h2>
+
+        <div class="features-grid" style="width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; justify-content: center; align-items: start;">
+          <div class="feat" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 24px; background: var(--bg); border-radius: 12px; box-sizing: border-box;">
+            <div class="feat-icon" style="font-size: 32px; margin-bottom: 12px;">🏠</div>
+            <h4 style="margin-bottom: 8px;">Металлочерепица</h4>
+            <p style="font-size: 14px; color: #94a3b8; line-height: 1.5; margin: 0;">Монтеррей, Усадьба, Шато, Гранд, Kvinta, Супер Kvinta. Покрытие PE, Matte, Printech</p>
+          </div>
+
+          <div class="feat" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 24px; background: var(--bg); border-radius: 12px; box-sizing: border-box;">
+            <div class="feat-icon" style="font-size: 32px; margin-bottom: 12px;">🏗</div>
+            <h4 style="margin-bottom: 8px;">Профнастил</h4>
+            <p style="font-size: 14px; color: #94a3b8; line-height: 1.5; margin: 0;">С-8, С-20, С-21, НС-35, НС-44, Н-60, Н-75, Н-114. Толщина 0.25–1.0 мм</p>
+          </div>
+
+          <div class="feat" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 24px; background: var(--bg); border-radius: 12px; box-sizing: border-box;">
+            <div class="feat-icon" style="font-size: 32px; margin-bottom: 12px;">🏡</div>
+            <h4 style="margin-bottom: 8px;">Фальцевая кровля</h4>
+            <p style="font-size: 14px; color: #94a3b8; line-height: 1.5; margin: 0;">Замковая и клик-замок. Прямая, пуклёвка, трапеция. Гладкий лист в защитной плёнке</p>
+          </div>
+
+          <div class="feat" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 24px; background: var(--bg); border-radius: 12px; box-sizing: border-box;">
+            <div class="feat-icon" style="font-size: 32px; margin-bottom: 12px;">🚧</div>
+            <h4 style="margin-bottom: 8px;">Евроштакетник</h4>
+            <p style="font-size: 14px; color: #94a3b8; line-height: 1.5; margin: 0;">Профили М, П, ПК — прямые и фигурные. Полная и частичная перфорация</p>
+          </div>
+
+          <div class="feat" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 24px; background: var(--bg); border-radius: 12px; box-sizing: border-box;">
+            <div class="feat-icon" style="font-size: 32px; margin-bottom: 12px;">🔨</div>
+            <h4 style="margin-bottom: 8px;">Доборные элементы</h4>
+            <p style="font-size: 14px; color: #94a3b8; line-height: 1.5; margin: 0;">Коньки, ендовы, ветровые планки, карнизы, отливы, уголки — полный комплект для монтажа</p>
+          </div>
+
+          <div class="feat" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 24px; background: var(--bg); border-radius: 12px; box-sizing: border-box;">
+            <div class="feat-icon" style="font-size: 32px; margin-bottom: 12px;">🎯</div>
+            <h4 style="margin-bottom: 8px;">Модульные заборы</h4>
+            <p style="font-size: 14px; color: #94a3b8; line-height: 1.5; margin: 0;">Ламели стандарт и Double, несущие профили, планки. Жалюзийные ограждения</p>
+          </div>
+        </div>
+
+      </div> </section> </div> <div class="overlay" id="overlay" onclick="closeCart()"></div>
+  <div class="drawer" id="drawer">
+    <div class="drw-head">
+      <h2>Корзина заказа</h2>
+      <button class="close-x" onclick="closeCart()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="drw-body" id="drwBody"></div>
+    <div class="drw-sum" id="drwSum" style="display:none">
+      <div class="sum-row"><span>Позиций:</span><span id="sItems">0</span></div>
+      <div class="sum-total"><span>Итого</span><span id="sTotal">0 ₽</span></div>
+      <div class="order-form" id="orderForm">
+        <h3>Оформление заказа</h3>
+        <div class="o-field"><label>Имя *</label><input type="text" id="fName" placeholder="Иван Иванов"></div>
+        <div class="o-field"><label>Телефон *</label><input type="tel" id="fPhone" placeholder="+7 (___) ___-__-__"></div>
+        <div class="o-field"><label>Адрес доставки *</label><textarea id="fAddr" rows="2" placeholder="г. Москва, ул. Примерная, д. 1"></textarea></div>
+        <div class="o-field"><label>Комментарий</label><textarea id="fComment" rows="2" placeholder="Дополнительные пожелания..."></textarea></div>
+        <button class="send-btn" id="submitBtn" onclick="sendOrder()">Отправить заказ в Telegram</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
