@@ -129,109 +129,118 @@
     </section>
 
     <section>
-      <div class="container" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-        <div class="section-label">Каталог</div>
-        <h2 class="section-title">Наше производство</h2>
-        <p class="section-sub" style="margin-left: auto; margin-right: auto; max-width: 620px;">
-          Полный цикл — от заготовки стали до готового изделия. Металлочерепица, профнастил, фальцевая кровля, евроштакетник, доборные элементы.
-        </p>
+  <div class="container" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+    <div class="section-label">Каталог</div>
+    <h2 class="section-title">Наше производство</h2>
+    <p class="section-sub" style="margin-left: auto; margin-right: auto; max-width: 620px;">
+      Полный цикл — от заготовки стали до готового изделия. Металлочерепица, профнастил, фальцевая кровля, евроштакетник, доборные элементы.
+    </p>
 
-        <div class="prod-grid" id="homeProducts">
-          <div class="prod-card" onclick="navTo('price');setTimeout(()=>{document.getElementById('pcatF').value='tile';renderPrice()},100)">
-            <div class="prod-img">
-              <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&amp;q=80" alt="Металлочерепица" loading="lazy">
-              <div class="prod-badge">Хит продаж</div>
-            </div>
-            <div class="prod-body">
-              <h3>Металлочерепица</h3>
-              <p>Монтеррей, Усадьба, Шато, Гранд, Kvinta, Супер Kvinta. Покрытие PE, Matte, Deep Matte, Printech. Рабочая ширина 1100–1160 мм.</p>
-              <div class="prod-tags"><span class="prod-tag">PE</span><span class="prod-tag">Matte</span><span class="prod-tag">Printech</span><span class="prod-tag">НЛМК</span><span class="prod-tag">Северсталь</span></div>
-              <div class="prod-footer">
-                <div class="prod-price"><span class="prod-price">Цена</span><strong>от 398 ₽/кв.м</strong></div>
-                <button class="prod-cta">Смотреть цены →</button>
-              </div>
-            </div>
-          </div>
+    <!-- Сетка: 1 колонка на мобильных, 3 колонки на десктопе (md:) -->
+    <div class="prod-grid grid grid-cols-1 md:grid-cols-3 gap-6 w-full" id="homeProducts">
 
-          <div class="prod-card" onclick="navTo('price');setTimeout(()=>{document.getElementById('pcatF').value='prof';renderPrice()},100)">
-            <div class="prod-img">
-              <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&amp;q=80" alt="Профнастил" loading="lazy">
-            </div>
-            <div class="prod-body">
-              <h3>Профнастил</h3>
-              <p>С-8, С-20, С-20R, МП-20, С-21, НС-35, НС-44, Н-60, Н-75, Н-114. Толщина 0.25–1.0 мм. Кровельный и заборный.</p>
-              <div class="prod-tags"><span class="prod-tag">Кровельный</span><span class="prod-tag">Заборный</span><span class="prod-tag">0.25–1.0 мм</span></div>
-              <div class="prod-footer">
-                <div class="prod-price"><span class="prod-price">Цена</span><strong>от 310 ₽/пог.м</strong></div>
-                <button class="prod-cta">Смотреть цены →</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="prod-card" onclick="navTo('price');setTimeout(()=>{document.getElementById('pcatF').value='flat';renderPrice()},100)">
-            <div class="prod-img">
-              <img src="https://images.unsplash.com/photo-1595514535116-8be1e2f24e0e?w=600&amp;q=80" alt="Фальцевая кровля" loading="lazy">
-            </div>
-            <div class="prod-body">
-              <h3>Фальцевая кровля</h3>
-              <p>Замковая и клик-замок. Прямая, пуклёвка, трапеция. Гладкий лист 1250 мм в защитной полиэстерной плёнке.</p>
-              <div class="prod-tags"><span class="prod-tag">Замковая</span><span class="prod-tag">Клик-замок</span><span class="prod-tag">Гладкий лист</span></div>
-              <div class="prod-footer">
-                <div class="prod-price"><span class="prod-price">Цена</span><strong>от 229 ₽/пог.м</strong></div>
-                <button class="prod-cta">Смотреть цены →</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="prod-card" onclick="navTo('price');setTimeout(()=>{document.getElementById('pcatF').value='fence';renderPrice()},100)">
-            <div class="prod-img">
-              <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&amp;q=80" alt="Евроштакетник" loading="lazy">
-              <div class="prod-badge">Для заборов</div>
-            </div>
-            <div class="prod-body">
-              <h3>Евроштакетник</h3>
-              <p>Профили М, П, ПК — прямые и фигурные. Ширина 109–120 мм. Полная, центральная и двойная перфорация.</p>
-              <div class="prod-tags"><span class="prod-tag">М</span><span class="prod-tag">П</span><span class="prod-tag">ПК</span><span class="prod-tag">109–120 мм</span></div>
-              <div class="prod-footer">
-                <div class="prod-price"><span class="prod-price">Цена</span><strong>от 43 ₽/пог.м</strong></div>
-                <button class="prod-cta">Смотреть цены →</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="prod-card" onclick="navTo('price');setTimeout(()=>{document.getElementById('pcatF').value='soffit';renderPrice()},100)">
-            <div class="prod-img">
-              <img src="https://images.unsplash.com/photo-1590725140246-20acddc1ec6d?w=600&amp;q=80" alt="Металлосайдинг / Софит" loading="lazy">
-            </div>
-            <div class="prod-body">
-              <h3>Металлосайдинг / Софит</h3>
-              <p>Софит 365/332 мм с полной, центральной, двойной перфорацией и без. Для подшивки карнизных свесов.</p>
-              <div class="prod-tags"><span class="prod-tag">Перфорированный</span><span class="prod-tag">Без перфорации</span></div>
-              <div class="prod-footer">
-                <div class="prod-price"><span class="prod-price">Цена</span><strong>от 233 ₽/пог.м</strong></div>
-                <button class="prod-cta">Смотреть цены →</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="prod-card" onclick="navTo('price');setTimeout(()=>{document.getElementById('pcatF').value='roof-acc';renderPrice()},100)">
-            <div class="prod-img">
-              <img src="https://images.unsplash.com/photo-1504309092620-4d0ec726efa4?w=600&amp;q=80" alt="Доборные элементы" loading="lazy">
-              <div class="prod-badge">Комплект</div>
-            </div>
-            <div class="prod-body">
-              <h3>Доборные элементы</h3>
-              <p>Коньки, ендовы, ветровые планки, карнизные капельники, планки примыкания, снеговые барьеры. Полный комплект для монтажа.</p>
-              <div class="prod-tags"><span class="prod-tag">Коньки</span><span class="prod-tag">Ендовы</span><span class="prod-tag">Отливы</span><span class="prod-tag">Уголки</span></div>
-              <div class="prod-footer">
-                <div class="prod-price"><span class="prod-price">Цена</span><strong>от 212 ₽/шт</strong></div>
-                <button class="prod-cta">Смотреть цены →</button>
-              </div>
-            </div>
+      <!-- 1. Металлочерепица -->
+      <div class="prod-card" onclick="navTo('price');setTimeout(()=>{document.getElementById('pcatF').value='tile';renderPrice()},100)">
+        <div class="prod-img">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&amp;q=80" alt="Металлочерепица" loading="lazy">
+          <div class="prod-badge">Хит продаж</div>
+        </div>
+        <div class="prod-body">
+          <h3>Металлочерепица</h3>
+          <p>Монтеррей, Усадьба, Шато, Гранд, Kvinta, Супер Kvinta. Покрытие PE, Matte, Deep Matte, Printech. Рабочая ширина 1100–1160 мм.</p>
+          <div class="prod-tags"><span class="prod-tag">PE</span><span class="prod-tag">Matte</span><span class="prod-tag">Printech</span><span class="prod-tag">НЛМК</span><span class="prod-tag">Северсталь</span></div>
+          <div class="prod-footer">
+            <div class="prod-price"><span class="prod-price">Цена</span><strong>от 398 ₽/кв.м</strong></div>
+            <button class="prod-cta">Смотреть цены →</button>
           </div>
         </div>
       </div>
-    </section>
+
+      <!-- 2. Профнастил -->
+      <div class="prod-card" onclick="navTo('price');setTimeout(()=>{document.getElementById('pcatF').value='prof';renderPrice()},100)">
+        <div class="prod-img">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&amp;q=80" alt="Профнастил" loading="lazy">
+        </div>
+        <div class="prod-body">
+          <h3>Профнастил</h3>
+          <p>С-8, С-20, С-20R, МП-20, С-21, НС-35, НС-44, Н-60, Н-75, Н-114. Толщина 0.25–1.0 мм. Кровельный и заборный.</p>
+          <div class="prod-tags"><span class="prod-tag">Кровельный</span><span class="prod-tag">Заборный</span><span class="prod-tag">0.25–1.0 мм</span></div>
+          <div class="prod-footer">
+            <div class="prod-price"><span class="prod-price">Цена</span><strong>от 310 ₽/пог.м</strong></div>
+            <button class="prod-cta">Смотреть цены →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Фальцевая кровля -->
+      <div class="prod-card" onclick="navTo('price');setTimeout(()=>{document.getElementById('pcatF').value='flat';renderPrice()},100)">
+        <div class="prod-img">
+          <img src="https://images.unsplash.com/photo-1595514535116-8be1e2f24e0e?w=600&amp;q=80" alt="Фальцевая кровля" loading="lazy">
+        </div>
+        <div class="prod-body">
+          <h3>Фальцевая кровля</h3>
+          <p>Замковая и клик-замок. Прямая, пуклёвка, трапеция. Гладкий лист 1250 мм в защитной полиэстерной плёнке.</p>
+          <div class="prod-tags"><span class="prod-tag">Замковая</span><span class="prod-tag">Клик-замок</span><span class="prod-tag">Гладкий лист</span></div>
+          <div class="prod-footer">
+            <div class="prod-price"><span class="prod-price">Цена</span><strong>от 229 ₽/пог.м</strong></div>
+            <button class="prod-cta">Смотреть цены →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Евроштакетник -->
+      <div class="prod-card" onclick="navTo('price');setTimeout(()=>{document.getElementById('pcatF').value='fence';renderPrice()},100)">
+        <div class="prod-img">
+          <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&amp;q=80" alt="Евроштакетник" loading="lazy">
+          <div class="prod-badge">Для заборов</div>
+        </div>
+        <div class="prod-body">
+          <h3>Евроштакетник</h3>
+          <p>Профили М, П, ПК — прямые и фигурные. Ширина 109–120 мм. Полная, центральная и двойная перфорация.</p>
+          <div class="prod-tags"><span class="prod-tag">М</span><span class="prod-tag">П</span><span class="prod-tag">ПК</span><span class="prod-tag">109–120 мм</span></div>
+          <div class="prod-footer">
+            <div class="prod-price"><span class="prod-price">Цена</span><strong>от 43 ₽/пог.м</strong></div>
+            <button class="prod-cta">Смотреть цены →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Металлосайдинг / Софит -->
+      <div class="prod-card" onclick="navTo('price');setTimeout(()=>{document.getElementById('pcatF').value='soffit';renderPrice()},100)">
+        <div class="prod-img">
+          <img src="https://images.unsplash.com/photo-1590725140246-20acddc1ec6d?w=600&amp;q=80" alt="Металлосайдинг / Софит" loading="lazy">
+        </div>
+        <div class="prod-body">
+          <h3>Металлосайдинг / Софит</h3>
+          <p>Софит 365/332 мм с полной, центральной, двойной перфорацией и без. Для подшивки карнизных свесов.</p>
+          <div class="prod-tags"><span class="prod-tag">Перфорированный</span><span class="prod-tag">Без перфорации</span></div>
+          <div class="prod-footer">
+            <div class="prod-price"><span class="prod-price">Цена</span><strong>от 233 ₽/пог.м</strong></div>
+            <button class="prod-cta">Смотреть цены →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Доборные элементы -->
+      <div class="prod-card" onclick="navTo('price');setTimeout(()=>{document.getElementById('pcatF').value='roof-acc';renderPrice()},100)">
+        <div class="prod-img">
+          <img src="https://images.unsplash.com/photo-1504309092620-4d0ec726efa4?w=600&amp;q=80" alt="Доборные элементы" loading="lazy">
+          <div class="prod-badge">Комплект</div>
+        </div>
+        <div class="prod-body">
+          <h3>Доборные элементы</h3>
+          <p>Коньки, ендовы, ветровые планки, карнизные капельники, планки примыкания, снеговые барьеры. Полный комплект для монтажа.</p>
+          <div class="prod-tags"><span class="prod-tag">Коньки</span><span class="prod-tag">Ендовы</span><span class="prod-tag">Отливы</span><span class="prod-tag">Уголки</span></div>
+          <div class="prod-footer">
+            <div class="prod-price"><span class="prod-price">Цена</span><strong>от 212 ₽/шт</strong></div>
+            <button class="prod-cta">Смотреть цены →</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
     <section style="background:var(--bg2)">
       <div class="container" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
@@ -738,5 +747,34 @@
   </div>
 
   <script src="app.js"></script>
+<script>
+    // 1. Блокируем клик правой кнопкой мыши (контекстное меню)
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    // 2. Блокируем горячие клавиши (F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U)
+    document.onkeydown = function(e) {
+      if (e.keyCode == 123 || // F12
+          (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || // Ctrl+Shift+I / J
+          (e.ctrlKey && e.keyCode == 85)) { // Ctrl+U (Просмотр кода страницы)
+        return false;
+      }
+    };
+
+    // 3. «Ловушка» для хитрецов: если они обойдут блок и откроют DevTools,
+    // скрипт уйдет в бесконечный дебаг и намертво заморозит вкладку браузера.
+    (function() {
+      const block = function() {
+        setInterval(function() {
+          debugger;
+        }, 50);
+      };
+      try {
+        block();
+      } catch (err) {}
+    })();
+  </script>
+
+  <script src="app.js"></script> </body>
+</html>
 </body>
 </html>
